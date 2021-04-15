@@ -1,0 +1,136 @@
+html,
+body {
+  background-color: #F3F3F3;
+  font-size: 15px;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.full-width {
+  width: 100%;
+}
+
+/* upper header */
+#upper-header {
+  padding: 0 0 5px;
+}
+
+#upper-header #upper-header-block {
+  list-style-type: none;
+  margin: 0 auto;
+  width: 1140px;
+}
+
+#upper-header #upper-header-block #upper-header-container {
+  margin: 0;
+  text-align: right;
+}
+
+#upper-header #upper-header-block #upper-header-container .up-head-item {
+  display: inline;
+}
+
+#upper-header #upper-header-block #upper-header-container .up-head-item a {
+  color: #000000;
+  margin-left: 10px;
+  text-decoration: none;
+}
+
+/* header */
+#header {
+  background-color: #37b542;
+  padding: 10px 0;
+}
+
+#header #header-block {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto;
+  width: 1140px;
+}
+
+#header #header-block #search #search-txt,
+#search-btn {
+  border: none;
+  padding: 5px 10px;
+}
+
+#header #header-block #search #search-btn {
+  color: #ffffff;
+  background-color: #087a14;
+}
+
+/* banner */
+#banner {
+  background-color: green;
+  height: 150px;
+  margin: 5px auto 0;
+  width: 1140px;
+}
+
+/* nav-bar */
+#nav-bar {
+  margin: 0 auto;
+  width: 1140px;
+}
+
+#nav-bar #nav-bar-block {
+  padding: 0;
+  list-style-type: none;
+}
+
+#nav-bar #nav-bar-block .nav-bar-item {
+  display: inline;
+  margin-right: 5px;
+}
+
+#nav-bar #nav-bar-block .nav-bar-item a {
+  color: #000000;
+  font-weight: 600;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+#nav-bar hr {
+  background-color: #087a14;
+  height: 1px;
+  margin-top: 0;
+}
+
+#sub-nav-bar {
+  background-color: yellow;
+  display: none;
+  height: 50px;
+  margin: 0 auto;
+  width: 1140px;
+}
+
+/* content */
+#content {
+  background-color: blue;
+  height: 300px;
+  margin: 0 auto;
+  width: 1140px;
+}
+
+/* upper-footer */
+#upper-footer {
+  background-color: #FFFFFF;
+  padding: 10px 0;
+}
+
+#upper-footer #upper-footer-block {
+  margin: 0 auto;
+  width: 1140px;
+}
+
+/* footer */
+#footer {
+  background-color: #FFFFFF;
+  padding: 10px 0;
+}
+
+#footer #footer-block {
+  margin: 0 auto;
+  width: 1140px;
+}
