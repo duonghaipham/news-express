@@ -132,7 +132,6 @@ body {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr;
-  justify-items: stretch
 }
 
 #upper-footer #upper-footer-block .ft-item a {
