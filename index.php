@@ -1,7 +1,7 @@
 <?php
 require 'control/BaseController.php';
-require 'model/db-conn.php';
-$db = new Database;
+require 'model/core/Database.php';
+//$db = new Database;
 
 $controller_name = ucfirst(($_REQUEST['controller'] ?? 'Layout') . 'Controller');
 $action_name = strtolower($_REQUEST['action'] ?? 'index');

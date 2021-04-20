@@ -1,6 +1,6 @@
 <?php
 class Database {
-    public $conn = NULL;
+    private $conn = NULL;
     private $server = "localhost";
     private $username = "root";
     private $password = "";
@@ -12,6 +12,10 @@ class Database {
             die("Connection failed " . $this->conn->connect_error);
         }
         $this->conn->set_charset("utf8");
+    }
+
+    public function query($query) {
+        return $this->conn->query($query);
     }
 
     public function disconnect() {
