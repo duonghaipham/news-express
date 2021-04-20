@@ -12,7 +12,7 @@
 //        require "layout/banner.html";
         require "layout/nav-bar.html";
         require "layout/sub-nav-bar.html";
-        require "top-news/content.php";
+        require "post/post.php";
         require "layout/upper-footer.html";
         require "layout/footer.html";
         ?>
