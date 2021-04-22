@@ -16,5 +16,6 @@
         require "layout/upper-footer.html";
         require "layout/footer.html";
         ?>
+        <script src="http://localhost/news-express/asset/js/script.js"></script>
     </body>
 </html>

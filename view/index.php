@@ -9,12 +9,12 @@
         <?php
         require "layout/upper-header.html";
         require "layout/header.html";
-//        require "layout/banner.html";
         require "layout/nav-bar.html";
         require "layout/sub-nav-bar.html";
         require "top-news/content.php";
         require "layout/upper-footer.html";
         require "layout/footer.html";
         ?>
+        <script src="http://localhost/news-express/asset/js/script.js"></script>
     </body>
 </html>
