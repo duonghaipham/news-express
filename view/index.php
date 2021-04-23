@@ -7,7 +7,7 @@
     </head>
     <body>
         <?php
-        require "layout/upper-header.html";
+        require "layout/upper-header.php";
         require "layout/header.html";
         require "layout/nav-bar.html";
         require "layout/sub-nav-bar.html";
