@@ -11,14 +11,51 @@ class UserController extends BaseController {
 
             $data = array(
                 'username' => trim($_POST['username']),
-                'password' => trim($_POST['password'])
+                'password' => trim($_POST['password']),
+                'remember' => trim($_POST['remember'])
             );
 
             $login_user = $this->user_model->login($data['username'], $data['password']);
-            if ($login_user)
+            if ($login_user) {
                 $this->create_user_session($login_user);
+                if ($data['remember'] == 'on') {
+                    $expired = time() + 30 * 24 * 60 * 60;
+                    setcookie('account', $data['username'] . '_' . $data['password'], $expired);
+                }
+            }
             else
-                header('location:' . 'http://localhost/news-express/index.php');
+                header('location:' . URLROOT);
+        }
+    }
+
+    public function signup() {
+        $this->model('UserModel');
+        $this->user_model = new UserModel();
+
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+
+            $data = array(
+                'username' => trim($_POST['username']),
+                'password' => trim($_POST['signup_password']),
+                're_password' => trim($_POST['re_password']),
+                'name' => trim($_POST['name']),
+                'email' => trim($_POST['email']),
+                'birthday' => trim($_POST['birthday']),
+                'gender' => trim($_POST['gender']) == 'male' ? 'TRUE' : 'FALSE'
+            );
+            $this->user_model->signup($data);
+            header('location:' . URLROOT);
+        }
+    }
+
+    public function username_available() {
+        $this->model('UserModel');
+        $this->user_model = new UserModel();
+
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+            echo $this->user_model->validate_username(trim($_POST['username']));
         }
     }
 
@@ -26,13 +63,13 @@ class UserController extends BaseController {
         unset($_SESSION['username']);
         unset($_SESSION['email']);
         unset($_SESSION['name']);
-        header('location:' . 'http://localhost/news-express/index.php');
+        header('location:' . URLROOT);
     }
 
     public function create_user_session($curr_user) {
         $_SESSION['username'] = $curr_user['USERNAME'];
         $_SESSION['email'] = $curr_user['EMAIL'];
         $_SESSION['name'] = $curr_user['NAME'];
-        header('location:' . 'http://localhost/news-express/index.php');
+        header('location:' . URLROOT);
     }
 }

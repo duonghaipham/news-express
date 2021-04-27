@@ -1,7 +1,7 @@
 <?php
 class BaseController {
     private const VIEW_FOLDER = 'view/';
-    private const MODEL_FOLDER = 'model/core/';
+    private const MODEL_FOLDER = 'model/';
 
     final protected function view($view_path, array $data = []) {
         foreach ($data as $key => $value) {

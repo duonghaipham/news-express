@@ -1,6 +1,4 @@
 <?php
-require "./model/entity/Feed.php";
-
 class FeedModel {
     public function getById($id_feed) {
         $db_conn = new Database();

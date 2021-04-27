@@ -1,6 +1,7 @@
 <?php
 require 'controller/BaseController.php';
-require 'model/core/Database.php';
+require 'model/Database.php';
+define('URLROOT', 'http://localhost/news-express/index.php');
 session_start();
 
 $controller_name = ucfirst(($_REQUEST['controller'] ?? 'Layout') . 'Controller');

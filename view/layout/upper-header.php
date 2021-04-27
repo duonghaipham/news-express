@@ -22,12 +22,20 @@
     <div id="modal-login">
         <form id="login-form" class="animate" action="http://localhost/news-express/index.php?controller=User&action=login" method="POST">
             <h1>Đăng nhập</h1>
-            <input type="text" name="username" placeholder="Tài khoản" required/>
-            <input type="password" name="password" placeholder="Mật khẩu" required/>
+            <?php
+            $username = $password = "";
+            if (isset($_COOKIE['account'])) {
+                $account = explode('_', $_COOKIE['account']);   // split account cookie
+                $username = $account[0];
+                $password = $account[1];
+            }
+            echo "<input type='text' name='username' value='$username' placeholder='Tài khoản' required/>";
+            echo "<input type='password' name='password' value='$password' placeholder='Mật khẩu' required/>";
+            ?>
             <button type="submit" value="submit">Đăng nhập</button>
             <div id="sub-feature">
                 <label>
-                    <input type="checkbox">Nhớ đăng nhập
+                    <input type="checkbox" name="remember">Nhớ đăng nhập
                 </label>
                 <a>Quên mật khẩu?</a>
             </div>
@@ -35,24 +43,20 @@
     </div>
 
     <div id="modal-signup">
-        <form id="signup-form" class="animate" action="" method="POST">
+        <form id="signup-form" class="animate" action="http://localhost/news-express/index.php?controller=User&action=signup" method="POST">
             <h1>Kết nối với chúng tôi</h1>
-            <input type="text" placeholder="Tài khoản" required/>
-            <input type="password" placeholder="Mật khẩu" required/>
-            <input type="password" placeholder="Nhập lại mật khẩu"/>
-            <input type="text" placeholder="Họ tên"/>
-            <input type="email" placeholder="Email"/>
-            <input type="text" placeholder="Ngày sinh" onfocus="(this.type='date')">
+            <input type="text" name='username' placeholder="Tài khoản" id='signup-username' required/>
+            <input type="password" name='signup_password' placeholder="Mật khẩu" required/>
+            <input type="password" name='re_password' placeholder="Nhập lại mật khẩu" required/>
+            <input type="text" name='name' placeholder="Họ tên" required/>
+            <input type="email" name='email' placeholder="Email" required/>
+            <input type="text" name="birthday" placeholder="Ngày sinh" onfocus="(this.type='date')" required>
             <span>Giới tính </span>
-            <label>
-                <input type="radio" name="gender" value="male">
-                <span>Nam</span>
-            </label>
-            <label>
-                <input type="radio" name="gender" value="male">
-                <span>Nữ</span>
-            </label>
-            <button type="submit">Đăng ký</button>
+            <input type="radio" name="gender" value="male">
+            <label for="male">Nam</label>
+            <input type="radio" name="gender" value="female">
+            <label for="female">Nữ</label>
+            <button type="submit" id="btn-signup" disabled="true">Đăng ký</button>
         </form>
     </div>
 </div>
