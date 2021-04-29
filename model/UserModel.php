@@ -16,6 +16,16 @@ class UserModel {
         }
     }
 
+    public function getById($username) {
+        $db_conn = new Database();
+        $db_conn->connect();
+        $select_query = "SELECT * FROM USER_ WHERE USERNAME = '$username'";
+        $result = $db_conn->query($select_query);
+        $db_conn->disconnect();
+
+        return $result;
+    }
+
     public function signup($data) {
         $db_conn = new Database();
         $db_conn->connect();

@@ -19,4 +19,20 @@ class FeedModel {
 
         return $result;
     }
+
+    public function insert($data) {
+        $db_conn = new Database();
+        $db_conn->connect();
+        $insert_query = "INSERT INTO FEED (TITLE, SUMMARY, CONTENT, URL_FIGURE, USERNAME, PUBLISHED_TS, VIEWED_COUNT) " .
+                        "VALUES ('" .
+                        $data['title'] . "', '" .
+                        $data['summary'] . "', '" .
+                        $data['content'] . "', '" .
+                        $data['url_figure'] . "', '" .
+                        $data['username'] . "', " .
+                        'NOW()' . ", " .
+                        '0);';
+        $db_conn->query($insert_query);
+        $db_conn->disconnect();
+    }
 }

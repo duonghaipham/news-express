@@ -97,7 +97,7 @@ rePassword.addEventListener('blur', () => {
 const formSignup = document.getElementById('signup-form');
 formSignup.addEventListener('change', () => {
     const btnSignup = document.getElementById('btn-signup');
-    btnSignup.disabed = (document.getElementById('duplicate-error') != null ||
+    btnSignup.disabled = (document.getElementById('duplicate-error') != null ||
         document.getElementById('length-error') != null ||
         document.getElementById('match-error') != null);
 });

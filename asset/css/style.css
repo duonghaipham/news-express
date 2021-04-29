@@ -252,6 +252,12 @@ a {
   width: 1140px;
 }
 
+#post #post-author {
+  font-weight: 600;
+  margin: 0;
+  text-transform: uppercase;
+}
+
 #post #post-title {
   color: #37B542;
 }
@@ -284,6 +290,45 @@ a {
 
 #post #post-viewed-count {
   margin: 0 auto;
+}
+
+/*#publish*/
+#publish {
+  margin: 25px auto;
+  width: 1140px;
+}
+
+#publish #form-publish label {
+  color: #515151;
+  font-size: 17px;
+  font-weight: 600;
+}
+
+#publish #form-publish input[type="text"],
+#publish #form-publish textarea {
+  border: 1px solid #CCCCCC;
+  font-size: 16px;
+  display: inherit;
+  margin: 10px 0;
+  padding: 10px 15px;
+  width: 75%;
+}
+
+#publish #form-publish input[type="file"] {
+  border: none;
+  display: inherit;
+  font-size: 16px;
+  margin: 15px 0;
+}
+
+#publish #form-publish #btn-post {
+  background-color: #37B542;
+  border: none;
+  color: #FFFFFF;
+  display: inherit;
+  font-size: 16px;
+  margin: 15px 0;
+  padding: 15px 50px;
 }
 
 /* upper-footer */
