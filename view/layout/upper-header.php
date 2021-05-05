@@ -9,6 +9,9 @@
             }
             else {
                 echo "<li class='up-head-item'>" . $_SESSION['name'] . "</li>";
+                echo "<a href='http://localhost/news-express/index.php?controller=Layout&action=publishment'>
+                        <li class='up-head-item'>Đăng bài</li>
+                      </a>";
                 echo "<a href='http://localhost/news-express/index.php?controller=user&action=logout'>
                         <li class='up-head-item' id='logout-btn'>Đăng xuất</li>
                       </a>";

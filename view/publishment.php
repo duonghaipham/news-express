@@ -11,7 +11,7 @@
         require "layout/header.html";
         require "layout/nav-bar.html";
         require "layout/sub-nav-bar.html";
-        require "post/create.php";
+        require "post/create.html";
         require "layout/upper-footer.html";
         require "layout/footer.html";
         ?>

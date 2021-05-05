@@ -22,7 +22,10 @@ class LayoutController extends BaseController {
     }
 
     public function publishment() {
-        $this->view('publishment', []);
+        if (isset($_SESSION['username']))
+            $this->view('publishment', []);
+        else
+            header('location:' . URLROOT);
     }
 
     public function post() {
@@ -51,6 +54,4 @@ class LayoutController extends BaseController {
             }
         }
     }
-
-
 }
