@@ -1,11 +1,16 @@
 <?php
 class UserModel {
+
+    private $db_conn;
+
+    public function __construct() {
+        $this->db_conn = new Database();
+        $this->db_conn->connect();
+    }
+
     public function login($username, $password) {
-        $db_conn = new Database();
-        $db_conn->connect();
         $validation_query = "SELECT * FROM USER_ WHERE USERNAME = '$username'";
-        $data = $db_conn->query($validation_query);
-        $db_conn->disconnect();
+        $data = $this->db_conn->query($validation_query);
         if ($data->num_rows > 0) {
             $curr_user = $data->fetch_assoc();
 //            if (password_verify($curr_user['password'], $password))
@@ -16,19 +21,14 @@ class UserModel {
         }
     }
 
-    public function getById($username) {
-        $db_conn = new Database();
-        $db_conn->connect();
+    public function get_by_id($username) {
         $select_query = "SELECT * FROM USER_ WHERE USERNAME = '$username'";
-        $result = $db_conn->query($select_query);
-        $db_conn->disconnect();
+        $result = $this->db_conn->query($select_query);
 
         return $result;
     }
 
     public function signup($data) {
-        $db_conn = new Database();
-        $db_conn->connect();
         $insert_query = "INSERT INTO USER_ " .
                         "VALUES ('" .
                         $data['username'] . "', '" .
@@ -40,19 +40,32 @@ class UserModel {
                         $data['birthday'] . "', " .
                         $data['gender'] . ', NULL);';
 
-        $db_conn->query($insert_query);
-        $db_conn->disconnect();
+        $this->db_conn->query($insert_query);
     }
 
     public function validate_username($username) {
-        $db_conn = new Database();
-        $db_conn->connect();
         $select_query = "SELECT USERNAME FROM USER_ WHERE USERNAME = '$username'";
-        $usernames = $db_conn->query($select_query);
-        $db_conn->disconnect();
+        $usernames = $this->db_conn->query($select_query);
 
         if ($usernames->num_rows > 0)
             return false;
         return true;
+    }
+
+    public function get_detail($username) {
+        $get_profile_query = "SELECT * FROM USER_ WHERE USERNAME = '$username'";
+        $result = $this->db_conn->query($get_profile_query);
+
+        if ($result->num_rows > 0) {
+            $row = $result->fetch_assoc();
+            return array(
+                "name" => $row['NAME'],
+                "phone" => $row['PHONE'],
+                "email" => $row['EMAIL'],
+                "birthday" => $row['BIRTHDAY'],
+                "gender" => $row['GENDER']
+            );
+        }
+        return false;
     }
 }

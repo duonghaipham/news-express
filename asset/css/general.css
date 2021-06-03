@@ -1,0 +1,271 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
+html,
+body {
+    background-color: #F3F3F3;
+    font-size: 15px;
+    font-family: 'Open Sans', sans-serif;
+    margin: 0;
+}
+
+a {
+    color: #000000;
+    text-decoration: none;
+}
+
+.full-width {
+    width: 100%;
+}
+
+/* upper header */
+#upper-header {
+    padding: 5px 0;
+}
+
+#upper-header #upper-header-block {
+    list-style-type: none;
+    margin: 0 auto;
+    width: 1140px;
+}
+
+#upper-header #upper-header-block #upper-header-container {
+    margin: 0;
+    text-align: right;
+}
+
+#upper-header #upper-header-block #upper-header-container .up-head-item {
+    cursor: pointer;
+    display: inline;
+    margin-left: 10px;
+}
+
+/*share between Login and Signup*/
+/*#user-section is just a logical id*/
+
+#user-section input[type="text"],
+#user-section input[type="password"],
+#user-section input[type="email"],
+#user-section input[type="date"] {
+    border: 1px solid #CCCCCC;
+    box-sizing: border-box;
+    font-size: 16px;
+    display: inherit;
+    margin: 15px auto;
+    padding: 10px 15px;
+    width: 100%;
+}
+
+#user-section button {
+    background-color: #37B542;
+    border: none;
+    color: #FFFFFF;
+    font-size: 16px;
+    display: inherit;
+    margin: 15px auto;
+    padding: 10px 15px;
+    width: 100%;
+}
+
+#user-section button:hover {
+    opacity: 0.8;
+}
+
+#user-section .error {
+    color: #D0312D;
+    font-size: 13px;
+    font-style: italic;
+    margin: 0;
+}
+
+.animate {
+    -webkit-animation: animate-zoom 0.5s;
+    animation: animate-zoom 0.5s
+}
+
+@keyframes animate-zoom {
+    from {transform: scale(0)}
+    to {transform: scale(1)}
+}
+
+/*modal-login*/
+
+#modal-login {
+    background-color: rgba(0,0,0,0.4);
+    display: none;
+    height: 100%;
+    left: 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+}
+
+#modal-login #login-form {
+    background-color: #FFFFFF;
+    margin: 15% auto;
+    padding: 30px;
+    width: 400px;
+}
+
+/*make use of attributes for both login and signup h1*/
+#modal-login #login-form h1,
+#modal-signup #signup-form h1 {
+    color: #515151;
+    font-size: 20px;
+    margin: 0;
+    text-align: center;
+}
+
+#modal-login #login-form #sub-feature {
+    display: flex;
+    justify-content: space-between;
+}
+
+/* modal-signup */
+#modal-signup {
+    background-color: rgba(0,0,0,0.4);
+    display: none;
+    height: 100%;
+    left: 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+}
+
+#modal-signup #signup-form {
+    background-color: #FFFFFF;
+    margin: 5% auto;
+    padding: 30px;
+    width: 400px;
+}
+
+/* header */
+#header {
+    background-color: #37b542;
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,.2);
+    padding: 10px 0;
+}
+
+#header #header-block {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+    width: 1140px;
+}
+
+#header #header-block #search #search-txt,
+#search-btn {
+    border: none;
+    font-size: 15px;
+    padding: 5px 10px;
+}
+
+#header #header-block #search #search-btn {
+    color: #ffffff;
+    background-color: #087a14;
+}
+
+/* banner */
+#banner {
+    background-color: green;
+    height: 150px;
+    margin: 10px auto 0;
+    width: 1140px;
+}
+
+/* nav-bar */
+#nav-bar {
+    margin: 0 auto;
+    width: 1140px;
+}
+
+#nav-bar #nav-bar-block {
+    padding: 0;
+    list-style-type: none;
+}
+
+#nav-bar #nav-bar-block .nav-bar-item {
+    display: inline;
+    margin-right: 5px;
+}
+
+#nav-bar #nav-bar-block .nav-bar-item a {
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+#nav-bar hr {
+    background-color: #37B542;
+    height: 1px;
+    margin-top: 0;
+}
+
+#sub-nav-bar {
+    background-color: yellow;
+    display: none;
+    height: 50px;
+    margin: 0 auto;
+    width: 1140px;
+}
+
+/* upper-footer */
+#upper-footer {
+    background-color: #FFFFFF;
+    box-shadow: 0 -2px 4px 0 rgba(0, 0, 0, .15);
+    padding: 10px 0;
+}
+
+#upper-footer #upper-footer-block {
+    margin: 0 auto;
+    width: 1140px;
+}
+
+#upper-footer #upper-footer-block #grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+}
+
+#upper-footer #upper-footer-block .ft-item a {
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+#upper-footer #upper-footer-block hr {
+    background-color: #37B542;
+}
+
+/* footer */
+#footer {
+    background-color: #FFFFFF;
+    padding: 0 0 10px;
+}
+
+#footer #footer-block {
+    align-items: center;
+    display: flex;
+    font-size: 13px;
+    justify-content: space-between;
+    margin: 0 auto;
+    width: 1140px;
+}
+
+#footer #footer-block #copyright #license {
+    font-weight: 700;
+    margin: 0;
+}
+
+#footer #footer-block #copyright .info {
+    margin: 0;
+}
+
+#footer #footer-block #members .editor-role {
+    margin: 0;
+    text-align: right;
+}
+
+#footer #footer-block #members .editor-role .name {
+    font-weight: 700;
+}

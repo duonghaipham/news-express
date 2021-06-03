@@ -1,28 +1,28 @@
 <?php
 class FeedModel {
-    public function getById($id_feed) {
-        $db_conn = new Database();
-        $db_conn->connect();
+
+    private $db_conn;
+
+    public function __construct() {
+        $this->db_conn = new Database();
+        $this->db_conn->connect();
+    }
+
+    public function get_by_id($id_feed) {
         $select_query = "SELECT * FROM FEED WHERE ID_FEED = $id_feed";
-        $result = $db_conn->query($select_query);
-        $db_conn->disconnect();
+        $result = $this->db_conn->query($select_query);
 
         return $result;
     }
 
-    public function getLasts($amount) {
-        $db_conn = new Database();
-        $db_conn->connect();
+    public function get_lasts($amount) {
         $size_query = "SELECT * FROM FEED ORDER BY ID_FEED DESC LIMIT $amount";
-        $result = $db_conn->query($size_query);
-        $db_conn->disconnect();
+        $result = $this->db_conn->query($size_query);
 
         return $result;
     }
 
     public function insert($data) {
-        $db_conn = new Database();
-        $db_conn->connect();
         $insert_query = "INSERT INTO FEED (TITLE, SUMMARY, CONTENT, URL_FIGURE, USERNAME, PUBLISHED_TS, VIEWED_COUNT) " .
                         "VALUES ('" .
                         $data['title'] . "', '" .
@@ -32,7 +32,6 @@ class FeedModel {
                         $data['username'] . "', " .
                         'NOW()' . ", " .
                         '0);';
-        $db_conn->query($insert_query);
-        $db_conn->disconnect();
+        $this->db_conn->query($insert_query);
     }
 }

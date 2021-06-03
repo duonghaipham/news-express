@@ -1,0 +1,18 @@
+#profile {
+    margin: 25px auto;
+    width: 1140px;
+    font-size: 18px;
+}
+
+#profile ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+#profile ul li {
+    margin-bottom: 20px;
+}
+
+#profile ul li span {
+    font-weight: 600;
+}

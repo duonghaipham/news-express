@@ -2,8 +2,8 @@
 <html lang="en">
     <head>
         <link href="http://localhost/news-express/asset/css/general.css" rel="stylesheet"/>
-        <link href="http://localhost/news-express/asset/css/content.css" rel="stylesheet"/>
-        <title>Báo nóng</title>
+        <link href="http://localhost/news-express/asset/css/profile.css" rel="stylesheet"/>
+        <title>Thông tin nhà báo</title>
     </head>
     <body>
         <?php
@@ -11,7 +11,7 @@
         require "layout/header.html";
         require "layout/nav-bar.html";
         require "layout/sub-nav-bar.html";
-        require "feed/top-news.php";
+        require "user/detail.php";
         require "layout/upper-footer.html";
         require "layout/footer.html";
         ?>

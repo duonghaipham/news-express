@@ -1,7 +1,9 @@
 <?php
-class LayoutController extends BaseController {
+class FeedController extends BaseController {
+
     private $feed_model;
     private $user_model;
+
     public function __construct() {
         $this->model('FeedModel');
         $this->model('UserModel');
@@ -10,20 +12,20 @@ class LayoutController extends BaseController {
     }
 
     public function index() {
-        $head_news = $this->feed_model->getLasts(6);
+        $head_news = $this->feed_model->get_lasts(6);
         $this->view('index', ['head_news_key' => $head_news]);
     }
 
-    public function detail() {
+    public function view_() {
         $id_feed = $_GET['id_feed'];
-        $detailed_post = $this->feed_model->getById($id_feed)->fetch_assoc();
-        $detailed_post['NAME'] = $this->user_model->getById($detailed_post['USERNAME'])->fetch_assoc()['NAME'];
-        $this->view('detail', ['post' => $detailed_post]);
+        $detailed_post = $this->feed_model->get_by_id($id_feed)->fetch_assoc();
+        $detailed_post['NAME'] = $this->user_model->get_by_id($detailed_post['USERNAME'])->fetch_assoc()['NAME'];
+        $this->view('view-post', ['post' => $detailed_post]);
     }
 
-    public function publishment() {
+    public function create() {
         if (isset($_SESSION['username']))
-            $this->view('publishment', []);
+            $this->view('create-post', []);
         else
             header('location:' . URLROOT);
     }

@@ -2,10 +2,12 @@
 class UserController extends BaseController {
     private $user_model;
 
-    public function login() {
+    public function __construct() {
         $this->model('UserModel');
         $this->user_model = new UserModel();
+    }
 
+    public function login() {
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
 
@@ -29,9 +31,6 @@ class UserController extends BaseController {
     }
 
     public function signup() {
-        $this->model('UserModel');
-        $this->user_model = new UserModel();
-
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
 
@@ -50,9 +49,6 @@ class UserController extends BaseController {
     }
 
     public function username_available() {
-        $this->model('UserModel');
-        $this->user_model = new UserModel();
-
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
             echo $this->user_model->validate_username(trim($_POST['username']));
@@ -71,5 +67,12 @@ class UserController extends BaseController {
         $_SESSION['email'] = $curr_user['EMAIL'];
         $_SESSION['name'] = $curr_user['NAME'];
         header('location:' . URLROOT);
+    }
+
+    public function get_detail() {
+        if (isset($_SESSION['username'])) {
+            $data = $this->user_model->get_detail($_SESSION['username']);
+            $this->view('view-profile', $data);
+        }
     }
 }

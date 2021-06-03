@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="">
+<html lang="en">
     <head>
-        <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
-        <link href="http://localhost/news-express/asset/css/style.css" rel="stylesheet"/>
+        <link href="http://localhost/news-express/asset/css/general.css" rel="stylesheet"/>
+        <link href="http://localhost/news-express/asset/css/post.css" rel="stylesheet"/>
         <title>Báo nóng</title>
     </head>
     <body>
@@ -11,7 +11,7 @@
         require "layout/header.html";
         require "layout/nav-bar.html";
         require "layout/sub-nav-bar.html";
-        require "post/post.php";
+        require "feed/detail.php";
         require "layout/upper-footer.html";
         require "layout/footer.html";
         ?>

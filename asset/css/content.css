@@ -1,0 +1,36 @@
+#content {
+    display: flex;
+    margin: 25px auto;
+    width: 1140px;
+}
+
+#content #top-news #figure {
+    height: 400px;
+}
+
+#content #top-news #title {
+    margin: 0;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+#content #runner-up-news {
+    margin-left: 25px;
+    overflow: auto;
+    height: 400px;
+    white-space: nowrap;
+}
+
+#content #runner-up-news .runner-up-item {
+    display: flex;
+    margin-bottom: 10px;
+}
+
+#content #runner-up-news .runner-up-item .runner-up-figure {
+    height: 75px;
+}
+
+#content #runner-up-news .runner-up-item .runner-up-title {
+    margin: 0 0 0 10px;
+    font-size: 17px;
+}

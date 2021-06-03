@@ -1,0 +1,44 @@
+#post {
+    margin: 25px auto;
+    width: 1140px;
+}
+
+#post #post-author {
+    font-weight: 600;
+    margin: 0;
+    text-transform: uppercase;
+}
+
+#post #post-title {
+    color: #37B542;
+}
+
+#post #post-figure {
+    display: block;
+    margin: 50px auto;
+    width: 700px;
+}
+
+#post #post-summary {
+    font-size: 16px;
+    font-style: italic;
+    font-weight: 600;
+    margin-left: 50px;
+    width: 500px;
+}
+
+#post #post-content {
+    font-size: 18px;
+    line-height: 32px;
+    text-align: justify;
+}
+
+#post #post-content br {
+    content: " ";
+    display: block;
+    margin: 20px 0;
+}
+
+#post #post-viewed-count {
+    margin: 0 auto;
+}
