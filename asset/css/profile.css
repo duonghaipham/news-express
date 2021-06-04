@@ -1,4 +1,4 @@
-#profile {
+#profile, #timeline {
     margin: 25px auto;
     width: 1140px;
     font-size: 18px;
@@ -15,4 +15,38 @@
 
 #profile ul li span {
     font-weight: 600;
+}
+
+#timeline h1 {
+    font-size: 24px;
+}
+
+#timeline .post-fragment {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 20px;
+}
+
+#timeline .post-fragment img {
+    width: 150px;
+}
+
+#timeline .post-fragment .content {
+    display: flex;
+    flex-direction: column;
+    margin-left: 20px;
+}
+
+#timeline .post-fragment .content .title {
+    font-size: 20px;
+    font-weight: 600;
+}
+
+#timeline .post-fragment .content .summary {
+    margin-top: 10px;
+}
+
+#timeline p {
+    color: #d73d39;
+    font-style: italic;
 }

@@ -1,10 +1,13 @@
 <?php
 class UserController extends BaseController {
     private $user_model;
+    private $feed_model;
 
     public function __construct() {
         $this->model('UserModel');
+        $this->model('FeedModel');
         $this->user_model = new UserModel();
+        $this->feed_model = new FeedModel();
     }
 
     public function login() {
@@ -71,8 +74,9 @@ class UserController extends BaseController {
 
     public function get_detail() {
         if (isset($_SESSION['username'])) {
-            $data = $this->user_model->get_detail($_SESSION['username']);
-            $this->view('view-profile', $data);
+            $profile_data = $this->user_model->get_detail($_SESSION['username']);
+            $feed_data = $this->feed_model->get_by_user($_SESSION['username']);
+            $this->view('view-profile', ['profile' => $profile_data, 'feed' => $feed_data]);
         }
     }
 }

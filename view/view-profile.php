@@ -12,6 +12,7 @@
         require "layout/nav-bar.html";
         require "layout/sub-nav-bar.html";
         require "user/detail.php";
+        require "feed/timeline.php";
         require "layout/upper-footer.html";
         require "layout/footer.html";
         ?>

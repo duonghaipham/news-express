@@ -34,4 +34,26 @@ class FeedModel {
                         '0);';
         $this->db_conn->query($insert_query);
     }
+
+    public function get_by_user($username) {
+        $feed_timeline_query = "SELECT ID_FEED, TITLE, SUMMARY, URL_FIGURE " .
+                               "FROM feed " .
+                               "WHERE USERNAME = '$username'";
+        $result = $this->db_conn->query($feed_timeline_query);
+
+        if ($result->num_rows > 0) {
+            $feed_data = array();
+            while ($row = $result->fetch_assoc()) {
+                $current_post = array(
+                    'id_feed' => $row['ID_FEED'],
+                    'title' => $row['TITLE'],
+                    'summary' => $row['SUMMARY'],
+                    'url_figure' => $row['URL_FIGURE']
+                );
+                array_push($feed_data, $current_post);
+            }
+            return $feed_data;
+        }
+        return false;
+    }
 }
