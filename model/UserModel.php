@@ -68,4 +68,11 @@ class UserModel {
         }
         return false;
     }
+
+    public function update($username, $name, $email, $phone, $birthday, $gender) {
+        $update_user_query = "UPDATE USER_ " .
+                             "SET NAME='$name', EMAIL='$email', PHONE='$phone', BIRTHDAY='$birthday', GENDER=$gender " .
+                             "WHERE USERNAME='$username'";
+        $this->db_conn->query($update_user_query);
+    }
 }

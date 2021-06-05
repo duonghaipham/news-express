@@ -70,7 +70,7 @@ a {
     opacity: 0.8;
 }
 
-#user-section .error {
+.error {
     color: #D0312D;
     font-size: 13px;
     font-style: italic;

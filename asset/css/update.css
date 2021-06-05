@@ -1,0 +1,51 @@
+#update-form {
+    margin: 25px auto;
+    width: 540px;
+    font-size: 18px;
+}
+
+#update-form h1 {
+    font-size: 24px;
+    text-align: center;
+}
+
+#update-form input[type="text"],
+#update-form input[type="password"],
+#update-form input[type="email"],
+#update-form input[type="tel"],
+#update-form input[type="date"] {
+    border: 1px solid #CCCCCC;
+    box-sizing: border-box;
+    font-size: 16px;
+    display: inherit;
+    margin: 15px auto;
+    padding: 10px 15px;
+    width: 100%;
+}
+
+#update-form button {
+    background-color: #37B542;
+    border: none;
+    color: #FFFFFF;
+    font-size: 16px;
+    display: inherit;
+    margin: 15px auto;
+    padding: 10px 15px;
+    width: 100%;
+}
+
+#update-form #change-password {
+    margin: 15px auto;
+}
+
+#update-form #change-password #check-change:checked ~ #change-section {
+    opacity: 1;
+    height: auto;
+    transition: opacity 0.3s 0.3s ease-in;
+}
+
+#update-form #change-password #change-section {
+    opacity: 0;
+    height: 0;
+    overflow: hidden;
+}

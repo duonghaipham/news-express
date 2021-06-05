@@ -60,14 +60,12 @@ class UserController extends BaseController {
 
     public function logout() {
         unset($_SESSION['username']);
-        unset($_SESSION['email']);
         unset($_SESSION['name']);
         header('location:' . URLROOT);
     }
 
     public function create_user_session($curr_user) {
         $_SESSION['username'] = $curr_user['USERNAME'];
-        $_SESSION['email'] = $curr_user['EMAIL'];
         $_SESSION['name'] = $curr_user['NAME'];
         header('location:' . URLROOT);
     }
@@ -77,6 +75,33 @@ class UserController extends BaseController {
             $profile_data = $this->user_model->get_detail($_SESSION['username']);
             $feed_data = $this->feed_model->get_by_user($_SESSION['username']);
             $this->view('view-profile', ['profile' => $profile_data, 'feed' => $feed_data]);
+        }
+    }
+
+    public function load_update() {
+        if (isset($_SESSION['username'])) {
+            $profile_data = $this->user_model->get_detail($_SESSION['username']);
+            $this->view('update-profile', ['profile' => $profile_data]);
+        }
+        else {
+            header('location:' . URLROOT);
+        }
+    }
+
+    public function update() {
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+
+            $this->user_model->update(
+                trim($_GET['username']),
+                trim($_POST['name']),
+                trim($_POST['email']),
+                trim($_POST['phone']),
+                trim($_POST['birthday']),
+                trim($_POST['gender']) == 'male' ? 'TRUE' : 'FALSE'
+            );
+            $_SESSION['name'] = trim($_POST['name']);
+            header('location:' . URLROOT . '?controller=user&action=get_detail');
         }
     }
 }
