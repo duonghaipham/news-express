@@ -1,6 +1,6 @@
 <div id="publish">
     <h1>Tạo bài viết</h1>
-    <form action="http://localhost/news-express/index.php?controller=Layout&action=post"
+    <form action="http://localhost/news-express/index.php?controller=feed&action=post"
           method="post"
           enctype="multipart/form-data"
           id="form-publish">
@@ -14,7 +14,8 @@
         <textarea name="content" id="content" rows="20" required></textarea>
 
         <label for="image">Hình ảnh</label>
-        <input type="file" name="image" id="image" accept="image/*" required>
+        <input type="file" name="image" id="img-upload" accept="image/*" required>
+        <img src="#" alt="Description" id="img-preview">
 
         <button type="submit" id="btn-post">Đăng</button>
     </form>

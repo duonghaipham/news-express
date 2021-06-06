@@ -26,6 +26,11 @@
   margin: 15px 0;
 }
 
+#publish #form-publish #img-preview {
+  display: none;
+  width: 500px;
+}
+
 #publish #form-publish #btn-post {
   background-color: #37B542;
   border: none;

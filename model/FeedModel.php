@@ -9,10 +9,26 @@ class FeedModel {
     }
 
     public function get_by_id($id_feed) {
-        $select_query = "SELECT * FROM FEED WHERE ID_FEED = $id_feed";
-        $result = $this->db_conn->query($select_query);
+        $get_feed_query = "SELECT * FROM feed WHERE ID_FEED = $id_feed";
+        $result = $this->db_conn->query($get_feed_query);
 
-        return $result;
+        if ($result->num_rows > 0) {
+            $row = $result->fetch_assoc();
+            $data = array(
+                'id_feed' => $row['ID_FEED'],
+                'title' => $row['TITLE'],
+                'summary' => $row['SUMMARY'],
+                'content' => $row['CONTENT'],
+                'url_figure' => $row['URL_FIGURE'],
+                'published_ts' => $row['PUBLISHED_TS'],
+                'viewed_count' => $row['VIEWED_COUNT'],
+                'username' => $row['USERNAME']
+            );
+            $get_name_query = "SELECT NAME FROM user_ WHERE USERNAME = '" . $data['username'] . "'";
+            $data['name'] = $this->db_conn->query($get_name_query)->fetch_assoc()['NAME'];
+            return $data;
+        }
+        return false;
     }
 
     public function get_lasts($amount) {
@@ -55,5 +71,18 @@ class FeedModel {
             return $feed_data;
         }
         return false;
+    }
+
+    public function edit($id_feed, $title, $summary, $content, $url_figure) {
+        if (!empty($url_figure)) {
+            $edit_figure_query = "UPDATE feed " .
+                                 "SET URL_FIGURE = '$url_figure' " .
+                                 "WHERE ID_FEED = $id_feed";
+            $this->db_conn->query($edit_figure_query);
+        }
+        $edit_feed_query = "UPDATE feed " .
+                           "SET TITLE = '$title', SUMMARY = '$summary', CONTENT = '$content' " .
+                           "WHERE ID_FEED = $id_feed";
+        $this->db_conn->query($edit_feed_query);
     }
 }

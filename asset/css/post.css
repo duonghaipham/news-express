@@ -3,7 +3,14 @@
     width: 1140px;
 }
 
-#post #post-author {
+#post #author {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#post #author p {
     font-weight: 600;
     margin: 0;
     text-transform: uppercase;
