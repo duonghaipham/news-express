@@ -1,11 +1,16 @@
 <div id="header" class="full-width">
     <div id="header-block">
-        <div id="logo"><a href="http://localhost/news-express/index.php">logo here</a></div>
+        <div id="logo">
+            <a href="http://localhost/news-express/index.php">
+                <img src="http://localhost/news-express/asset/svg/cup.svg" alt="logo">
+                <p>Báo nóng</p>
+            </a>
+        </div>
         <div id="search">
-            <form>
+            <form action="http://localhost/news-express/index.php" method="GET">
                 <label for="search-txt"></label>
-                <input type="text" id="search-txt" placeholder="Tìm kiếm tin tức">
-                <button type="button" id="search-btn">Tìm kiếm</button>
+                <input type="text" name="keyword" id="search-txt" placeholder="Tìm kiếm tin tức">
+                <button type="submit" id="search-btn">Tìm kiếm</button>
             </form>
         </div>
     </div>

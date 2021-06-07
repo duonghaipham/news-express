@@ -1,0 +1,43 @@
+#search-result {
+    margin: 25px auto;
+    width: 1140px;
+    font-size: 18px;
+}
+
+#search-result h1 {
+    font-size: 24px;
+}
+
+#search-result h1 span {
+    font-style: italic;
+}
+
+#search-result .post-fragment {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 20px;
+}
+
+#search-result .post-fragment img {
+    width: 150px;
+}
+
+#search-result .post-fragment .content {
+    display: flex;
+    flex-direction: column;
+    margin-left: 20px;
+}
+
+#search-result .post-fragment .content .title {
+    font-size: 20px;
+    font-weight: 600;
+}
+
+#search-result .post-fragment .content .summary {
+    margin-top: 10px;
+}
+
+#search-result p {
+    color: #d73d39;
+    font-style: italic;
+}

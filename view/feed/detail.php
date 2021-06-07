@@ -2,7 +2,7 @@
     <div id="author">
         <?php
         echo "<p>" . $post['name'] . "</p>";
-        if ($_SESSION['username'] == $post['username'])
+        if (isset($_SESSION['username']) && $_SESSION['username'] == $post['username'])
             echo "<a href='http://localhost/news-express/index.php?controller=feed&action=load_edit&id_feed=" . $post['id_feed'] . "'>Chỉnh</a>";
         ?>
     </div>

@@ -1,7 +1,8 @@
-<div id="timeline">
-    <h1>Danh sách bài báo</h1>
+<div id="search-result">
+    <h1>Kết quả tìm kiếm cho <span>'<?php echo $_GET['keyword']; ?>'</span></h1>
     <?php
     if ($feed) {
+        echo "<p>Có " . strval(count($feed)) . " kết quả</p>";
         foreach ($feed as $post) {
             echo "<a href='http://localhost/news-express/index.php?action=view_&id_feed=" . $post['id_feed'] . "'>" ;
             echo "<div class='post-fragment'>";
@@ -12,6 +13,6 @@
         }
     }
     else
-        echo "<p>Chưa có bài báo nào</p>";
+        echo "<p>Không tìm thấy kết quả phù hợp</p>";
     ?>
 </div>

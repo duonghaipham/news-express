@@ -85,4 +85,22 @@ class FeedModel {
                            "WHERE ID_FEED = $id_feed";
         $this->db_conn->query($edit_feed_query);
     }
+
+    public function search($keyword) {
+        $searh_post_query = "SELECT ID_FEED " .
+                            "FROM feed " .
+                            "WHERE MATCH (CATEGORY, TITLE, SUMMARY, CONTENT) " .
+                            "AGAINST('$keyword')";
+        $result = $this->db_conn->query($searh_post_query);
+
+        if ($result->num_rows > 0) {
+            $data = array();
+            while ($row = $result->fetch_assoc()) {
+                $current_feed = $this->get_by_id($row["ID_FEED"]);
+                array_push($data, $current_feed);
+            }
+            return $data;
+        }
+        return false;
+    }
 }

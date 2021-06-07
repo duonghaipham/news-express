@@ -12,8 +12,12 @@ class FeedController extends BaseController {
     }
 
     public function index() {
-        $head_news = $this->feed_model->get_lasts(6);
-        $this->view('index', ['head_news_key' => $head_news]);
+        if (isset($_GET['keyword']))
+            header("Location:" . URLROOT . "?controller=feed&action=search&keyword=" . $_GET['keyword']);
+        else {
+            $head_news = $this->feed_model->get_lasts(6);
+            $this->view('index', ['head_news_key' => $head_news]);
+        }
     }
 
     public function view_() {
@@ -92,6 +96,13 @@ class FeedController extends BaseController {
                 $url_figure ?? ''
             );
             header("Location:" . URLROOT);
+        }
+    }
+
+    public function search() {
+        if (isset($_GET['keyword'])) {
+            $search_result = $this->feed_model->search($_GET['keyword']);
+            $this->view('search-post', ['feed' => $search_result]);
         }
     }
 }

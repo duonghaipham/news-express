@@ -155,6 +155,25 @@ a {
     width: 1140px;
 }
 
+#header #header-block #logo a {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+#header #header-block #logo a img {
+    width: 25px;
+}
+
+#header #header-block #logo a p {
+    margin: 0 0 0 10px;
+    color: #fff;
+    font-size: 20px;
+    font-stretch: extra-condensed;
+    text-transform: uppercase;
+    opacity: 0.9;
+}
+
 #header #header-block #search #search-txt,
 #search-btn {
     border: none;
