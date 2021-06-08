@@ -1,6 +1,8 @@
 <?php
 require 'controller/BaseController.php';
 require 'model/Database.php';
+
+const URLWEB = 'http://localhost/news-express/';
 const URLROOT = 'http://localhost/news-express/index.php';
 session_start();
 

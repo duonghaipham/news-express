@@ -1,22 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <link href="http://localhost/news-express/asset/css/general.css" rel="stylesheet"/>
-        <link href="http://localhost/news-express/asset/css/profile.css" rel="stylesheet"/>
+        <link href="<?php echo URLWEB . 'asset/css/general.css'; ?>" rel="stylesheet"/>
+        <link href="<?php echo URLWEB . 'asset/css/profile.css'; ?>" rel="stylesheet"/>
         <title>Thông tin nhà báo</title>
     </head>
     <body>
         <?php
         require "layout/upper-header.php";
-        require "layout/header.html";
-        require "layout/nav-bar.html";
-        require "layout/sub-nav-bar.html";
+        require "layout/header.php";
+        require "layout/nav-bar.php";
         require "user/detail.php";
         require "feed/timeline.php";
-        require "layout/upper-footer.html";
+        require "layout/upper-footer.php";
         require "layout/footer.html";
         ?>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        <script src="http://localhost/news-express/asset/js/script.js"></script>
+        <script src="<?php echo URLWEB . 'asset/js/script.js'; ?>"></script>
     </body>
 </html>
