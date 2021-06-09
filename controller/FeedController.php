@@ -16,7 +16,7 @@ class FeedController extends BaseController {
             header("Location:" . URLROOT . "?controller=feed&action=search&keyword=" . $_GET['keyword']);
         else {
             $head_news = $this->feed_model->get_lasts(6);
-            $this->view('index', ['head_news_key' => $head_news]);
+            $this->view('index', ['head_news' => $head_news]);
         }
     }
 
@@ -47,15 +47,13 @@ class FeedController extends BaseController {
                 $new_img_name = "data/img/$hashed_img_name.$img_ext";
                 move_uploaded_file($tmp_name, $new_img_name);
 
-                $data = array(
-                    'title' => $_POST['title'],
-                    'summary' => $_POST['summary'],
-                    'content' => $_POST['content'],
-                    'username' => $_SESSION['username'],
-                    'url_figure' => "$hashed_img_name.$img_ext"
+                $this->feed_model->insert(
+                    trim($_POST['title']),
+                    trim($_POST['summary']),
+                    trim($_POST['content']),
+                    "$hashed_img_name.$img_ext",
+                    $_SESSION['username']
                 );
-
-                $this->feed_model->insert($data);
                 header('location:' . URLROOT);
             }
         }

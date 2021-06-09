@@ -3,6 +3,7 @@
     <head>
         <link href="<?php echo URLWEB . 'asset/css/general.css'; ?>" rel="stylesheet"/>
         <link href="<?php echo URLWEB . 'asset/css/search.css'; ?>" rel="stylesheet"/>
+        <link href="<?php echo URLWEB . 'asset/svg/cup.svg'; ?>" rel="shortcut icon" type="image/x-icon">
         <title>Tìm kiếm</title>
     </head>
     <body>

@@ -1,13 +1,19 @@
 <form id="update-form"
-      action="http://localhost/news-express/index.php?controller=user&action=update&username=<?php echo $_SESSION['username']; ?>"
+      action="<?php echo URLROOT . '?controller=user&action=update&username=' . $_SESSION['username']; ?>"
+      enctype="multipart/form-data"
       method="POST">
     <h1>Cập nhật thông tin</h1>
-    <?php
-    echo "<input type='text' name='name' placeholder='Họ tên' value='" . $profile['name'] . "' required/>";
-    echo "<input type='email' name='email' placeholder='Email' value='" . $profile['email'] . "' required/>";
-    echo "<input type='tel' name='phone' placeholder='Điện thoại' value='" . $profile['phone'] . "' required/>";
-    echo "<input type='date' name='birthday' placeholder='Ngày sinh' value='" . $profile['birthday'] . "' required>";
-    ?>
+    <div id="avatar">
+        <label for='img-upload'>
+            <img src='<?php echo URLWEB . 'asset/svg/exchange.svg'; ?>' alt='Change'>
+        </label>
+        <input type='file' name='image' id='img-upload' accept='image/*'>
+        <img src='<?php echo URLWEB . 'data/img/' . $profile['avatar']; ?>' alt='Profile picture' id='img-preview'>
+    </div>
+    <input type='text' name='name' placeholder='Họ tên' value='<?php echo $profile['name']; ?>' required/>
+    <input type='email' name='email' placeholder='Email' value='<?php echo $profile['email']; ?>' required/>
+    <input type='tel' name='phone' placeholder='Điện thoại' value='<?php echo $profile['phone']; ?>' required/>
+    <input type='date' name='birthday' placeholder='Ngày sinh' value='<?php echo $profile['birthday']; ?>' required>
     <div id="gender">
         <span>Giới tính </span>
         <input type='radio' name='gender' value='male' <?php if ($profile['gender'] == 1) echo 'checked' ?>>
@@ -15,14 +21,5 @@
         <input type="radio" name="gender" value="female" <?php if ($profile['gender'] == 0) echo 'checked' ?>>
         <label for="female">Nữ</label>
     </div>
-    <div id="change-password">
-        <input type='checkbox' name='change password' value='change' id="check-change">
-        <label for='change'>Đổi mật khẩu</label>
-        <div id="change-section">
-            <input type="password" name='old_password' placeholder="Mật khẩu cũ" required/>
-            <input type="password" name='new_password' placeholder='Mật khẩu' required/>
-            <input type="password" name='re_new_password' placeholder='Nhập lại mật khẩu' required/>
-        </div>
-    </div>
-    <button type="submit" id="btn-save" disabled="true">Lưu thay đổi</button>
+    <button type="submit" id="btn-save">Lưu thay đổi</button>
 </form>

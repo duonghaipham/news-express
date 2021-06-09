@@ -3,7 +3,8 @@
     <head>
         <link href="<?php echo URLWEB . 'asset/css/general.css'; ?>" rel="stylesheet"/>
         <link href="<?php echo URLWEB . 'asset/css/post.css'; ?>" rel="stylesheet"/>
-        <title>Báo nóng</title>
+        <link href="<?php echo URLWEB . 'asset/svg/cup.svg'; ?>" rel="shortcut icon" type="image/x-icon">
+        <title><?php echo $post['title']; ?></title>
     </head>
     <body>
         <?php

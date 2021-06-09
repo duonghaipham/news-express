@@ -22,13 +22,20 @@
     display: none;
     list-style-type: none;
     padding: 0;
-    margin: 0;
 }
 
 #profile #edit #edit-list li {
     text-align: right;
-    border-color: #000;
-    border-style: solid;
+    margin-bottom: 10px;
+}
+
+#profile #edit #edit-list li a {
+    padding: 5px 20px;
+}
+
+#profile #edit #edit-list li a:hover {
+    color: #fff;
+    background-color: #37b542;
 }
 
 #profile #edit:hover > #edit-list {
@@ -41,8 +48,18 @@
     align-items: center;
 }
 
-#profile #main-profile img {
+#profile #main-profile #avatar {
     width: 250px;
+    height: 250px;
+    background-position: center center;
+    background-repeat: no-repeat;
+    overflow: hidden;
+}
+
+#profile #main-profile #avatar img {
+    min-height: 100%;
+    min-width: 100%;
+    width: 100%;
     border-radius: 50%;
 }
 

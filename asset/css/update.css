@@ -9,6 +9,36 @@
     text-align: center;
 }
 
+#update-form #avatar {
+    position: relative;
+    margin: 0 auto;
+    width: 200px;
+    height: 200px;
+    background-position: center center;
+    background-repeat: no-repeat;
+    overflow: hidden;
+}
+
+#update-form #avatar label img {
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+    opacity: 0.75;
+    width: 25px;
+    cursor: pointer;
+}
+
+#update-form #avatar #img-preview {
+    min-height: 100%;
+    min-width: 100%;
+    border-radius: 50%;
+    width: 100%;
+}
+
+#update-form #img-upload {
+    display: none;
+}
+
 #update-form input[type="text"],
 #update-form input[type="password"],
 #update-form input[type="email"],
@@ -34,18 +64,6 @@
     width: 100%;
 }
 
-#update-form #change-password {
-    margin: 15px auto;
-}
-
-#update-form #change-password #check-change:checked ~ #change-section {
-    opacity: 1;
-    height: auto;
-    transition: opacity 0.3s 0.3s ease-in;
-}
-
-#update-form #change-password #change-section {
-    opacity: 0;
-    height: 0;
-    overflow: hidden;
+#update-form button:hover {
+    cursor: pointer;
 }

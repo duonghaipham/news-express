@@ -1,6 +1,6 @@
 <div id="publish">
     <h1>Tạo bài viết</h1>
-    <form action="http://localhost/news-express/index.php?controller=feed&action=post"
+    <form action="<?php echo URLROOT . '?controller=feed&action=post'; ?>"
           method="post"
           enctype="multipart/form-data"
           id="form-publish">

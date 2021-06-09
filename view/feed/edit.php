@@ -1,6 +1,6 @@
 <div id="publish">
     <h1>Chỉnh sửa bài viết</h1>
-    <form action="http://localhost/news-express/index.php?controller=feed&action=edit&id_feed=<?php echo $post['id_feed'] ?>"
+    <form action="<?php echo URLROOT . '?controller=feed&action=edit&id_feed=' . $post['id_feed']; ?>"
           method="post"
           enctype="multipart/form-data"
           id="form-publish">
@@ -15,7 +15,7 @@
 
         <label for="image">Hình ảnh</label>
         <input type="file" name="image" id="img-upload" accept="image/*">
-        <img src="<?php echo 'http://localhost/news-express/data/img/' . $post['url_figure'] ?>" alt="Description" id="img-preview">
+        <img src="<?php echo URLWEB . 'data/img/' . $post['url_figure'] ?>" alt="Description" id="img-preview">
 
         <button type="submit" id="btn-post">Lưu lại</button>
     </form>

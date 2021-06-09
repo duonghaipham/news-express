@@ -70,10 +70,32 @@ class UserModel {
         return false;
     }
 
-    public function update($username, $name, $email, $phone, $birthday, $gender) {
+    public function update($username, $name, $email, $phone, $birthday, $gender, $avatar) {
+        if (!empty($avatar)) {
+            $update_avatar_query = "UPDATE USER_ " .
+                                   "SET AVATAR='$avatar' " .
+                                   "WHERE USERNAME='$username'";
+            $this->db_conn->query($update_avatar_query);
+        }
         $update_user_query = "UPDATE USER_ " .
                              "SET NAME='$name', EMAIL='$email', PHONE='$phone', BIRTHDAY='$birthday', GENDER=$gender " .
                              "WHERE USERNAME='$username'";
         $this->db_conn->query($update_user_query);
+    }
+
+    public function update_password($username, $old_password, $new_password) {
+        $check_old_query = "SELECT * " .
+                           "FROM USER_ " .
+                           "WHERE USERNAME = '$username' AND PASSWORD = '$old_password'";
+        $result = $this->db_conn->query($check_old_query);
+        if ($result->num_rows == 1) {
+            $update_password_query = "UPDATE USER_ " .
+                                     "SET PASSWORD = '$new_password' " .
+                                     "WHERE USERNAME = '$username'";
+            $this->db_conn->query($update_password_query);
+            return true;
+        }
+        else
+            return false;
     }
 }

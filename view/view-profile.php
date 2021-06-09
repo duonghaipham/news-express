@@ -3,6 +3,7 @@
     <head>
         <link href="<?php echo URLWEB . 'asset/css/general.css'; ?>" rel="stylesheet"/>
         <link href="<?php echo URLWEB . 'asset/css/profile.css'; ?>" rel="stylesheet"/>
+        <link href="<?php echo URLWEB . 'asset/svg/cup.svg'; ?>" rel="shortcut icon" type="image/x-icon">
         <title>Thông tin nhà báo</title>
     </head>
     <body>

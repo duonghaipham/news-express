@@ -21,7 +21,6 @@ class FeedModel {
                 'content' => $row['CONTENT'],
                 'url_figure' => $row['URL_FIGURE'],
                 'published_ts' => $row['PUBLISHED_TS'],
-                'viewed_count' => $row['VIEWED_COUNT'],
                 'username' => $row['USERNAME']
             );
             $get_name_query = "SELECT NAME FROM user_ WHERE USERNAME = '" . $data['username'] . "'";
@@ -35,19 +34,24 @@ class FeedModel {
         $size_query = "SELECT * FROM FEED ORDER BY ID_FEED DESC LIMIT $amount";
         $result = $this->db_conn->query($size_query);
 
-        return $result;
+        if ($result->num_rows > 0) {
+            $head_news = array();
+            while ($row = $result->fetch_assoc()) {
+                array_push($head_news, array(
+                    'id_feed' => $row['ID_FEED'],
+                    'title' => $row['TITLE'],
+                    'content' => $row['CONTENT'],
+                    'url_figure' => $row['URL_FIGURE']
+                ));
+            }
+            return $head_news;
+        }
+        return false;
     }
 
-    public function insert($data) {
-        $insert_query = "INSERT INTO FEED (TITLE, SUMMARY, CONTENT, URL_FIGURE, USERNAME, PUBLISHED_TS, VIEWED_COUNT) " .
-                        "VALUES ('" .
-                        $data['title'] . "', '" .
-                        $data['summary'] . "', '" .
-                        $data['content'] . "', '" .
-                        $data['url_figure'] . "', '" .
-                        $data['username'] . "', " .
-                        'NOW()' . ", " .
-                        '0);';
+    public function insert($title, $summary, $content, $url_figure, $username) {
+        $insert_query = "INSERT INTO FEED (TITLE, SUMMARY, CONTENT, URL_FIGURE, USERNAME, PUBLISHED_TS) " .
+                        "VALUES ('$title', '$summary', '$content', '$url_figure', '$username', NOW())";
         $this->db_conn->query($insert_query);
     }
 

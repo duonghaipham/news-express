@@ -3,6 +3,7 @@
     <head>
         <link href="<?php echo URLWEB . 'asset/css/general.css'; ?>" rel="stylesheet"/>
         <link href="<?php echo URLWEB . 'asset/css/publish.css'; ?>" rel="stylesheet"/>
+        <link href="<?php echo URLWEB . 'asset/svg/cup.svg'; ?>" rel="shortcut icon" type="image/x-icon">
         <title>Tạo bài báo</title>
     </head>
     <body>
@@ -10,7 +11,7 @@
         require "layout/upper-header.php";
         require "layout/header.php";
         require "layout/nav-bar.php";
-        require "feed/create.html";
+        require "feed/create.php";
         require "layout/upper-footer.php";
         require "layout/footer.html";
         ?>

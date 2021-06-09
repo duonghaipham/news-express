@@ -8,11 +8,11 @@
                     "<li class='up-head-item' id='signup-btn'>Đăng ký</li>";
             }
             else {
-                echo "<a href='http://localhost/news-express/index.php?controller=user&action=get_detail'>" .
+                echo "<a href='" . URLROOT . "?controller=user&action=get_detail'>" .
                     "<li class='up-head-item'>" . $_SESSION['name'] . "</li></a>";
-                echo "<a href='http://localhost/news-express/index.php?controller=feed&action=create'>" .
+                echo "<a href='" . URLROOT . "?controller=feed&action=create'>" .
                     "<li class='up-head-item'>Đăng bài</li></a>";
-                echo "<a href='http://localhost/news-express/index.php?controller=user&action=logout'>" .
+                echo "<a href='" . URLROOT . "?controller=user&action=logout'>" .
                     "<li class='up-head-item' id='logout-btn'>Đăng xuất</li></a>";
             }
             ?>
@@ -22,7 +22,7 @@
 
 <div id="user-section">
     <div id="modal-login">
-        <form id="login-form" class="animate" action="http://localhost/news-express/index.php?controller=user&action=login" method="POST">
+        <form id="login-form" class="animate" action="<?php echo URLROOT . '?controller=user&action=login'; ?>" method="POST">
             <h1>Đăng nhập</h1>
             <?php
             $username = $password = "";
@@ -45,7 +45,7 @@
     </div>
 
     <div id="modal-signup">
-        <form id="signup-form" class="animate" action="http://localhost/news-express/index.php?controller=user&action=signup" method="POST">
+        <form id="signup-form" class="animate" action="<?php echo URLROOT . 'controller=user&action=signup'; ?>" method="POST">
             <h1>Kết nối với chúng tôi</h1>
             <input type="text" name='username' placeholder="Tài khoản" id='signup-username' required/>
             <input type="password" name='signup_password' placeholder="Mật khẩu" required/>

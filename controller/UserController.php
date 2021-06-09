@@ -91,8 +91,19 @@ class UserController extends BaseController {
     }
 
     public function update() {
-        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+        if (isset($_SESSION['username']) || $_SERVER['REQUEST_METHOD'] == 'POST') {
             $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+
+            if ($_FILES['image']['error'] == 0) {
+                $img_name = $_FILES['image']['name'];
+                $tmp_name = $_FILES['image']['tmp_name'];
+                $img_ext = pathinfo($img_name, PATHINFO_EXTENSION);
+
+                $hashed_img_name = hash_file('md5', $tmp_name);
+                $new_img_name = "data/img/$hashed_img_name.$img_ext";
+                move_uploaded_file($tmp_name, $new_img_name);
+                $avatar = "$hashed_img_name.$img_ext";
+            }
 
             $this->user_model->update(
                 trim($_GET['username']),
@@ -100,10 +111,36 @@ class UserController extends BaseController {
                 trim($_POST['email']),
                 trim($_POST['phone']),
                 trim($_POST['birthday']),
-                trim($_POST['gender']) == 'male' ? 'TRUE' : 'FALSE'
+                trim($_POST['gender']) == 'male' ? 'TRUE' : 'FALSE',
+                $avatar ?? ''
             );
             $_SESSION['name'] = trim($_POST['name']);
             header('location:' . URLROOT . '?controller=user&action=get_detail');
         }
+    }
+
+    public function load_update_password() {
+        if (isset($_SESSION['username']))
+            $this->view('update-profile-password', []);
+        else
+            header('location:' . URLROOT);
+    }
+
+    public function update_password() {
+        if (isset($_SESSION['username']) || $_SERVER['REQUEST_METHOD'] == 'POST') {
+            $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+
+            $msg = $this->user_model->update_password(
+                $_SESSION['username'],
+                trim($_POST['old_password']),
+                trim($_POST['new_password'])
+            );
+            if ($msg)
+                header('Location:' . URLROOT . '?controller=user&action=get_detail');
+            else
+                header('Location:' . URLROOT . '?controller=user&action=load_update_password');
+        }
+        else
+            header('Location:' . URLROOT);
     }
 }
