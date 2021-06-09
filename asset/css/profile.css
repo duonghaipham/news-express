@@ -1,27 +1,67 @@
-#profile, #timeline {
-    position: relative;
+#profile {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
     margin: 25px auto;
     width: 1140px;
     font-size: 18px;
 }
 
 #profile #edit {
-    position: absolute;
-    right: 0;
+    position: relative;
     font-size: 17px;
+    display: inline-block;
 }
 
-#profile ul {
+#profile #edit #edit-header {
+    width: 150px;
+}
+
+#profile #edit #edit-list {
+    position: absolute;
+    display: none;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+#profile #edit #edit-list li {
+    text-align: right;
+    border-color: #000;
+    border-style: solid;
+}
+
+#profile #edit:hover > #edit-list {
+    display: block;
+}
+
+#profile #main-profile {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+#profile #main-profile img {
+    width: 250px;
+    border-radius: 50%;
+}
+
+#profile #main-profile #info {
     list-style: none;
-    padding-left: 0;
 }
 
-#profile ul li {
+#profile #main-profile #info li {
     margin-bottom: 20px;
 }
 
-#profile ul li span {
+#profile #main-profile #info li span {
     font-weight: 600;
+}
+
+#timeline {
+    margin: 25px auto;
+    width: 1140px;
+    font-size: 18px;
 }
 
 #timeline h1 {

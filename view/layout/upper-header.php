@@ -8,15 +8,12 @@
                     "<li class='up-head-item' id='signup-btn'>Đăng ký</li>";
             }
             else {
-                echo "<a href='http://localhost/news-express/index.php?controller=user&action=get_detail'>
-                        <li class='up-head-item'>" . $_SESSION['name'] . "</li>
-                      </a>";
-                echo "<a href='http://localhost/news-express/index.php?controller=feed&action=create'>
-                        <li class='up-head-item'>Đăng bài</li>
-                      </a>";
-                echo "<a href='http://localhost/news-express/index.php?controller=user&action=logout'>
-                        <li class='up-head-item' id='logout-btn'>Đăng xuất</li>
-                      </a>";
+                echo "<a href='http://localhost/news-express/index.php?controller=user&action=get_detail'>" .
+                    "<li class='up-head-item'>" . $_SESSION['name'] . "</li></a>";
+                echo "<a href='http://localhost/news-express/index.php?controller=feed&action=create'>" .
+                    "<li class='up-head-item'>Đăng bài</li></a>";
+                echo "<a href='http://localhost/news-express/index.php?controller=user&action=logout'>" .
+                    "<li class='up-head-item' id='logout-btn'>Đăng xuất</li></a>";
             }
             ?>
         </ul>

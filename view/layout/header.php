@@ -2,7 +2,7 @@
     <div id="header-block">
         <div id="logo">
             <a href="<?php echo URLROOT; ?>">
-                <img src="<?php echo URLWEB . '/asset/svg/cup.svg'; ?>" alt="logo">
+                <img src="<?php echo URLWEB . 'asset/svg/cup.svg'; ?>" alt="logo">
                 <p>Báo nóng</p>
             </a>
         </div>

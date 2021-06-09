@@ -76,6 +76,8 @@ class UserController extends BaseController {
             $feed_data = $this->feed_model->get_by_user($_SESSION['username']);
             $this->view('view-profile', ['profile' => $profile_data, 'feed' => $feed_data]);
         }
+        else
+            header("Location:" . URLROOT);
     }
 
     public function load_update() {

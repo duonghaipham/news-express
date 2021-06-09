@@ -59,11 +59,12 @@ class UserModel {
         if ($result->num_rows > 0) {
             $row = $result->fetch_assoc();
             return array(
-                "name" => $row['NAME'],
-                "phone" => $row['PHONE'],
-                "email" => $row['EMAIL'],
-                "birthday" => $row['BIRTHDAY'],
-                "gender" => $row['GENDER']
+                'name' => $row['NAME'],
+                'phone' => $row['PHONE'],
+                'email' => $row['EMAIL'],
+                'birthday' => $row['BIRTHDAY'],
+                'gender' => $row['GENDER'],
+                'avatar' => $row['AVATAR']
             );
         }
         return false;
